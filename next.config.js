@@ -12,6 +12,13 @@ const config = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "seeklogo.com",
+      },
+    ],
+  },
 };
 
 export default config;
