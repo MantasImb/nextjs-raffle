@@ -1,6 +1,6 @@
 T3 Next.js Raffle App
 
-- [ ] Scaffold the application
+- [x] Scaffold the application
 - [ ] Deploy
 - [ ] Scaffold basic UI with mock data
 - [ ] Tidy up build process
