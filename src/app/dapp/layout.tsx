@@ -1,14 +1,25 @@
 import { TopNav } from "./_components/top-nav";
+import "~/styles/globals.css";
 
-export default function DappLayout({
+import { GeistSans } from "geist/font/sans";
+
+export const metadata = {
+  title: "BlockchainRaffle",
+  description: "Raffles that are on the blockchain",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
+};
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <main>
-      <TopNav />
-      {children}
-    </main>
+    <html lang="en" className={`${GeistSans.variable} dark`}>
+      <body>
+        <TopNav />
+        <main>{children}</main>
+      </body>
+    </html>
   );
 }

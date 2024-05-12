@@ -42,7 +42,7 @@ const mockData = [
   },
 ];
 
-export async function RaffleCards() {
+export async function ActiveRaffleCards() {
   const ethPrice = await getEthPriceInDollar();
   // ^ set it up so it gets updated every 10 minutes
 
