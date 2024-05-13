@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} dark`}>
       <body>
         <TopNav />
-        <main>{children}</main>
+        <main className="flex flex-col justify-evenly">{children}</main>
       </body>
     </html>
   );

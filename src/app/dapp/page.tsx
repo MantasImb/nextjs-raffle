@@ -68,7 +68,7 @@ async function FinishedRafflesSection() {
               />
               <div className="flex flex-col gap-1">
                 <h2 className="text-2xl text-amber-300">{item.name}</h2>
-                <p className="">
+                <p>
                   Prize: ${item.prize} of {item.currency === 1 ? "ETH" : "BNB"}
                 </p>
                 <p>Winner: {shortenAddress(item.winnerWalletAddress)}</p>

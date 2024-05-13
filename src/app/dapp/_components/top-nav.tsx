@@ -2,7 +2,7 @@ import { Button } from "~/components/ui/button";
 
 export function TopNav() {
   return (
-    <nav className="flex items-center justify-between border-b-2 p-2">
+    <nav className="sticky top-0 flex items-center justify-between border-b-2 p-2">
       <div className="text-4xl">LOGO</div>
       <div className="flex items-center gap-4">
         <div>

@@ -2,11 +2,10 @@ T3 Next.js Raffle App
 
 - [x] Scaffold the application
 - [x] Deploy
-- [ ] Scaffold basic UI with mock data
+- [x] Scaffold basic UI with mock data
 - - [x] Top nav
-- - [ ] DApp page current raffle section and ended raffles section.
-- [ ] Tidy up build process
-- [ ] Enable turbopack
+- - [x] DApp page current raffle section and ended raffles section.
+- [x] Enable turbopack
 - [ ] Add database
 - [ ] Attach database to UI
 - [ ] Add authentication
