@@ -20,7 +20,7 @@ import {
  */
 export const createTable = pgTableCreator((name) => `nextjs-raffle_${name}`);
 
-const roleEnum = pgEnum("role", ["user", "admin", "influencer"]);
+export const roleEnum = pgEnum("role", ["user", "admin", "influencer"]);
 
 export const users = createTable("user", {
   id: serial("id").primaryKey(),

@@ -6,7 +6,7 @@ T3 Next.js Raffle App
 - - [x] Top nav
 - - [x] DApp page current raffle section and ended raffles section.
 - [x] Enable turbopack
-- [ ] Add database
+- [x] Add database
 - [ ] Attach database to UI
 - [ ] Add authentication
 - [ ] Set-up server-only directory for security
