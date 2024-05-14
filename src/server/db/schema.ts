@@ -49,7 +49,7 @@ export const raffles = createTable("raffle", {
   winnerId: integer("winner_id").references(() => users.id),
   endDate: timestamp("end_date"),
   txHash: varchar("tx_hash"),
-  videoOfDraw: varchar("video"),
+  videoOfDraw: varchar("videoOfDraw"),
 });
 
 export const tickets = createTable("ticket", {
