@@ -29,7 +29,8 @@ export async function ActiveRaffleCards() {
                 {item.currency === "1" ? "ETH" : "BNB"}
               </p>
               <p>
-                Tickets remaining: {item.participantCount}/
+                Tickets remaining:{" "}
+                {item.maxParticipants - item.participantCount!}/
                 {item.maxParticipants}
               </p>
             </div>
