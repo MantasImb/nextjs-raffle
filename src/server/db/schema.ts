@@ -3,10 +3,10 @@
 
 import { sql } from "drizzle-orm";
 import {
-  index,
   integer,
   pgEnum,
   pgTableCreator,
+  real,
   serial,
   timestamp,
   varchar,
@@ -37,16 +37,17 @@ export const raffles = createTable("raffle", {
   id: serial("id").primaryKey(),
   creatorId: integer("creator_id").references(() => users.id),
   name: varchar("name").notNull(),
-  chain: varchar("chain").notNull(),
+  chain: integer("chain").notNull(),
   currency: varchar("currency").notNull(),
-  ticketPrice: varchar("ticket_price").notNull(),
-  prize: varchar("prize").notNull(),
+  ticketPrice: real("ticket_price").notNull(),
+  prize: real("prize").notNull(),
   image: varchar("image").notNull(),
   startDate: timestamp("start_date").notNull(),
   participantCount: integer("participant_count").default(0),
   maxParticipants: integer("max_participants").notNull(),
   // below are filled after the raffle ends
   winnerId: integer("winner_id").references(() => users.id),
+  winnerWalletAddress: varchar("winner_wallet_address"),
   endDate: timestamp("end_date"),
   txHash: varchar("tx_hash"),
   videoOfDraw: varchar("videoOfDraw"),

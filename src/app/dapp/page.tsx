@@ -2,6 +2,7 @@ import { Card, CardHeader } from "~/components/ui/card";
 import { ActiveRaffleCards } from "./_components/raffle-cards";
 import Image from "next/image";
 import { shortenAddress } from "~/lib/ethUtils";
+import { getFinishedRaffles } from "~/server/queries";
 
 export default function DApp() {
   return (
@@ -19,34 +20,7 @@ export default function DApp() {
 }
 
 async function FinishedRafflesSection() {
-  const finishedRaffles = [
-    {
-      name: "1 Ethereum raffle",
-      chain: 1,
-      currency: 1,
-      ticketPrice: 0.025,
-      prize: 1,
-      image:
-        "https://seeklogo.com/images/E/ethereum-logo-EC6CDBA45B-seeklogo.com.png",
-      winnerWalletAddress: "0xFF05c2Bc8461622359F33dbea618bb028D943eCE",
-      transactionHash:
-        "0x8122faae0e59e86a6ace125383778c0397cac5b4abc9d845bef0af1f4e157fd6",
-      video: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-    },
-    {
-      name: "0.5 Ethereum raffle",
-      chain: 1,
-      currency: 1,
-      ticketPrice: 0.025,
-      prize: 0.5,
-      image:
-        "https://seeklogo.com/images/E/ethereum-logo-EC6CDBA45B-seeklogo.com.png",
-      winnerWalletAddress: "0xFF05c2Bc8461622359F33dbea618bb028D943eCE",
-      transactionHash:
-        "0x8122faae0e59e86a6ace125383778c0397cac5b4abc9d845bef0af1f4e157fd6",
-      video: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
-    },
-  ];
+  const finishedRaffles = await getFinishedRaffles();
 
   if (!!!finishedRaffles.length) return null;
   return (
@@ -69,9 +43,10 @@ async function FinishedRafflesSection() {
               <div className="flex flex-col gap-1">
                 <h2 className="text-2xl text-amber-300">{item.name}</h2>
                 <p>
-                  Prize: ${item.prize} of {item.currency === 1 ? "ETH" : "BNB"}
+                  Prize: ${item.prize} of{" "}
+                  {item.currency === "1" ? "ETH" : "BNB"}
                 </p>
-                <p>Winner: {shortenAddress(item.winnerWalletAddress)}</p>
+                <p>Winner: {shortenAddress(item.winnerWalletAddress!)}</p>
                 <p className="text-blue-500 underline">View Proof Of Payment</p>
               </div>
             </CardHeader>
@@ -81,3 +56,32 @@ async function FinishedRafflesSection() {
     </section>
   );
 }
+
+// const finishedRaffles = [
+//   {
+//     name: "1 Ethereum raffle",
+//     chain: 1,
+//     currency: 1,
+//     ticketPrice: 0.025,
+//     prize: 1,
+//     image:
+//       "https://seeklogo.com/images/E/ethereum-logo-EC6CDBA45B-seeklogo.com.png",
+//     winnerWalletAddress: "0xFF05c2Bc8461622359F33dbea618bb028D943eCE",
+//     transactionHash:
+//       "0x8122faae0e59e86a6ace125383778c0397cac5b4abc9d845bef0af1f4e157fd6",
+//     video: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+//   },
+//   {
+//     name: "0.5 Ethereum raffle",
+//     chain: 1,
+//     currency: 1,
+//     ticketPrice: 0.025,
+//     prize: 0.5,
+//     image:
+//       "https://seeklogo.com/images/E/ethereum-logo-EC6CDBA45B-seeklogo.com.png",
+//     winnerWalletAddress: "0xFF05c2Bc8461622359F33dbea618bb028D943eCE",
+//     transactionHash:
+//       "0x8122faae0e59e86a6ace125383778c0397cac5b4abc9d845bef0af1f4e157fd6",
+//     video: "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+//   },
+// ];
