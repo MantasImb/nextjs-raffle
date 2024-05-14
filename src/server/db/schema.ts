@@ -35,6 +35,7 @@ export const users = createTable("user", {
 
 export const raffles = createTable("raffle", {
   id: serial("id").primaryKey(),
+  creatorId: integer("creator_id").references(() => users.id),
   name: varchar("name").notNull(),
   chain: varchar("chain").notNull(),
   currency: varchar("currency").notNull(),
