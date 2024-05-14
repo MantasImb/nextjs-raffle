@@ -26,7 +26,7 @@ export const users = createTable("user", {
   id: serial("id").primaryKey(),
   nickname: varchar("nickname").notNull(),
   email: varchar("email").notNull().unique(),
-  image: varchar("image").notNull(),
+  image: varchar("image"),
   role: roleEnum("role").notNull().default("user"),
   createdAt: timestamp("created_at").default(sql`now()`),
   ethereumAddress: varchar("ethereum_address").notNull().unique(),
