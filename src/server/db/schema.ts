@@ -43,7 +43,7 @@ export const raffles = createTable("raffle", {
   prize: varchar("prize").notNull(),
   image: varchar("image").notNull(),
   startDate: timestamp("start_date").notNull(),
-  participantCount: integer("participant_count").notNull().default(0),
+  participantCount: integer("participant_count").default(0),
   maxParticipants: integer("max_participants").notNull(),
   // below are filled after the raffle ends
   winnerId: integer("winner_id").references(() => users.id),

@@ -6,7 +6,7 @@ import { shortenAddress } from "~/lib/ethUtils";
 export default function DApp() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center gap-8 border-b-2 p-8">
+      <section className="mt-8 flex flex-col items-center justify-center gap-8 border-b-2 p-20">
         <div className="flex flex-col items-center justify-center gap-1">
           <h2 className="text-4xl">Current Raffles</h2>
           <p>Enter to win exciting prizes in our current raffles.</p>
@@ -50,7 +50,7 @@ async function FinishedRafflesSection() {
 
   if (!!!finishedRaffles.length) return null;
   return (
-    <section className="flex flex-col items-center justify-center gap-8 border-b-2 p-8">
+    <section className="flex flex-col items-center justify-center gap-8 border-b-2 p-20">
       <div className="flex flex-col items-center justify-center gap-1">
         <h2 className="text-4xl">Finished Raffles</h2>
         <p>View the winners and proof of payment of our past raffles.</p>
