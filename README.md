@@ -8,7 +8,7 @@ T3 Next.js Raffle App
 - [x] Enable turbopack
 - [x] Add database
 - [x] Populate database with mock data
-- [ ] Attach database to UI
+- [x] Attach database to UI
 - [ ] Add authentication
 - [ ] Set-up server-only directory for security
 - [ ] Error management - Sentry

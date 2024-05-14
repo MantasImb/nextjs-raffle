@@ -1,7 +1,7 @@
 import { Card, CardHeader } from "~/components/ui/card";
 import { ActiveRaffleCards } from "./_components/raffle-cards";
 import Image from "next/image";
-import { shortenAddress } from "~/lib/ethUtils";
+import { getEthPriceInDollar, shortenAddress } from "~/lib/ethUtils";
 import { getFinishedRaffles } from "~/server/queries";
 
 export default function DApp() {
@@ -21,6 +21,7 @@ export default function DApp() {
 
 async function FinishedRafflesSection() {
   const finishedRaffles = await getFinishedRaffles();
+  const ethPrice = await getEthPriceInDollar();
 
   if (!!!finishedRaffles.length) return null;
   return (
@@ -43,7 +44,7 @@ async function FinishedRafflesSection() {
               <div className="flex flex-col gap-1">
                 <h2 className="text-2xl text-amber-300">{item.name}</h2>
                 <p>
-                  Prize: ${item.prize} of{" "}
+                  Prize: ${item.prize * ethPrice} of{" "}
                   {item.currency === "1" ? "ETH" : "BNB"}
                 </p>
                 <p>Winner: {shortenAddress(item.winnerWalletAddress!)}</p>
