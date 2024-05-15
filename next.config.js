@@ -19,6 +19,12 @@ const config = {
       },
     ],
   },
+  webpack: (config) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    config.externals.push("pino-pretty", "lokijs", "encoding");
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return config;
+  },
 };
 
 export default config;

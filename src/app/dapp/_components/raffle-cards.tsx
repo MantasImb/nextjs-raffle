@@ -30,7 +30,7 @@ export async function ActiveRaffleCards() {
               </p>
               <p>
                 Tickets remaining:{" "}
-                {item.maxParticipants - item.participantCount!}/
+                {item.maxParticipants - item.participantCount}/
                 {item.maxParticipants}
               </p>
             </div>

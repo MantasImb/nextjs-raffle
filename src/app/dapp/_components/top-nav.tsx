@@ -1,4 +1,5 @@
 import { Button } from "~/components/ui/button";
+import ConnectButton from "./wallet-connect-button";
 
 export function TopNav() {
   return (
@@ -9,7 +10,8 @@ export function TopNav() {
           <p>Wallet connected: 0x456...abc</p>
           <p>Chain: Ethereum Mainnet</p>
         </div>
-        <Button>Connect Wallet</Button>
+        {/* <Button>Connect Wallet</Button> */}
+        <ConnectButton />
       </div>
     </nav>
   );
