@@ -3,7 +3,6 @@ import { ActiveRaffleCards } from "./_components/raffle-cards";
 import Image from "next/image";
 import { getEthPriceInDollar, shortenAddress } from "~/lib/ethUtils";
 import { getFinishedRaffles } from "~/server/queries";
-import { useSession } from "next-auth/react";
 
 export default function DApp() {
   return (

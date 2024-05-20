@@ -1,7 +1,12 @@
 import { Button } from "~/components/ui/button";
 import ConnectButton from "./wallet-connect-button";
+import { auth } from "~/auth";
 
-export function TopNav() {
+export async function TopNav() {
+  const session = await auth();
+
+  console.log(session);
+
   return (
     <nav className="sticky top-0 flex items-center justify-between border-b-2 bg-slate-950 px-4 py-2">
       <div className="text-4xl">LOGO</div>

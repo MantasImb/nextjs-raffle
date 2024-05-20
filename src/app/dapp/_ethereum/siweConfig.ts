@@ -9,8 +9,8 @@ import type {
 import { createSIWEConfig } from "@web3modal/siwe";
 
 export const siweConfig = createSIWEConfig({
-  createMessage: ({ nonce, address, chainId }: SIWECreateMessageArgs) =>
-    new SiweMessage({
+  createMessage: ({ nonce, address, chainId }: SIWECreateMessageArgs) => {
+    const message = new SiweMessage({
       version: "1",
       domain: window.location.host,
       uri: window.location.origin,
@@ -19,7 +19,10 @@ export const siweConfig = createSIWEConfig({
       nonce,
       // Human-readable ASCII assertion that the user will sign, and it must not contain `\n`.
       statement: "Sign in With Ethereum.",
-    }).prepareMessage(),
+    }).prepareMessage();
+    console.log("message", message);
+    return message;
+  },
   getNonce: async () => {
     const nonce = await getCsrfToken();
     if (!nonce) {

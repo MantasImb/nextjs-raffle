@@ -1,9 +1,10 @@
 import NextAuth from "next-auth";
 
 import credentialsProvider from "next-auth/providers/credentials";
-import { getCsrfToken } from "next-auth/react";
+// import { getCsrfToken } from "next-auth/react";
 import type { SIWESession } from "@web3modal/siwe";
 import { SiweMessage } from "siwe";
+import { cookies } from "next/headers";
 
 declare module "next-auth" {
   interface Session extends SIWESession {
@@ -45,7 +46,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw new Error("SiweMessage is undefined");
           }
           const siwe = new SiweMessage(credentials.message);
-          const nonce = await getCsrfToken();
+
+          const cookieStore = cookies();
+          const token = cookieStore.get("next-auth.csrf-token");
+          const nonce = token?.value.split("|")[0];
+
+          // const nonce = await getCsrfToken();
           // const nonce = await getCsrfToken({ req: { headers: req.headers } });
           const result = await siwe.verify({
             signature: (credentials?.signature as string) || "",
@@ -59,6 +65,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           return null;
         } catch (e) {
+          console.error(e);
           return null;
         }
       },
